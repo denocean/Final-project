@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <h1>The Un-Stranded Driver</h1>
+  <div id="post-list">
+    {% for post in posts %}
+      <div class="post">
+        <h2><a href="{% url 'blog:post_detail' slug=post.slug %}">{{ post.title }}</a></h2>
+        <p>By {{ post.author }} | {{ post.created_at|date:'M d, Y' }}</p>
+        {% if post.image %}
+          <img src="{{ post.image.url }}" alt="Image for {{ post.title }}" style="max-width:200px;">
+        {% endif %}
+        <div>{{ post.content|truncatewords:30|safe }}</div>
+      </div>
+    {% empty %}
+      <p>No posts yet.</p>
+    {% endfor %}
+    <div class="pagination">
+      {% if is_paginated %}
+        {% if page_obj.has_previous %}
+          <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

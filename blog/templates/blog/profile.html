@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <h1>Profile: {{ profile_user.username }}</h1>
+  <p>Email: {{ profile_user.email }}</p>
+  <p>Joined: {{ profile_user.date_joined|date:'M d, Y' }}</p>
+  <h2>Posts by {{ profile_user.username }}</h2>
+  <ul>
+    {% for post in profile_user.posts.all %}
+      <li><a href="{% url 'blog:post_detail' slug=post.slug %}">{{ post.title }}</a></li>
+    {% empty %}
+      <li>No posts yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>By {{ post.author }} | {{ post.created_at|date:'M d, Y' }}</p>
+  {% if post.image %}
+    <img src="{{ post.image.url }}" alt="Image for {{ post.title }}" style="max-width:400px;">
+  {% endif %}
+  <div>{{ post.content|linebreaks }}</div>
+  {% if user == post.author %}
+    <a href="{% url 'blog:post_edit' slug=post.slug %}">Edit</a>
+    <a href="{% url 'blog:post_delete' slug=post.slug %}">Delete</a>
+  {% endif %}
+  <a href="{% url 'blog:post_list' %}">Back to all posts</a>
+{% endblock %}

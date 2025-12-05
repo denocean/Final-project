@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Blog{% endblock %}</title>
+    <link rel="stylesheet" href="/static/blog/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'blog:post_list' %}" aria-label="Home">The Un-Stranded Driver</a></h1>
+        <nav aria-label="Main navigation">
+            <a href="{% url 'blog:post_create' %}" aria-label="Create new post">New Post</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'blog:profile' %}" aria-label="View profile">Profile</a>
+                <span aria-live="polite">Welcome, {{ user.username }}</span>
+                <a href="/admin/logout/" aria-label="Logout">Logout</a>
+            {% else %}
+                <a href="{% url 'blog:register' %}" aria-label="Register">Register</a>
+                <a href="/admin/login/" aria-label="Login">Login</a>
+            {% endif %}
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; {{ year|default:2025 }} My Blog</p>
+    </footer>
+</body>
+</html>
