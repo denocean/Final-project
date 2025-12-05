@@ -23,8 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls', namespace='blog')),
+    # This line correctly handles login, logout, password reset, etc., under the /accounts/ path
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/login/', include('django.contrib.auth.urls')),  # Explicit login URL
 ]
 
 if settings.DEBUG:
