@@ -130,7 +130,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # CSRF trusted origins for Render deployment
 CSRF_TRUSTED_ORIGINS = [
     'https://final-project-qd1k.onrender.com',
-    'final-project-qd1k.onrender.com',
 ]
 
 # Security settings for production
