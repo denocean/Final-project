@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'blog.middleware.SimpleLoggingMiddleware',
+    # 'blog.middleware.SimpleLoggingMiddleware',  # Temporarily disabled for CSRF debugging
 ]
 
 ROOT_URLCONF = 'blogsite.urls'
@@ -132,7 +132,6 @@ CSRF_TRUSTED_ORIGINS = [
     'https://final-project-qd1k.onrender.com',
     'https://onrender.com',
     'final-project-qd1k.onrender.com',
-    'onrender.com',
 ]
 
 # Security settings for production
