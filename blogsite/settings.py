@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-d7trbj(!n-6l#v&-tnox!g3iqt%p9mbxp-0_%1siia9^y@qz4&
 # SECURITY WARNING: don't run with debug turned on in production!
 import os
 DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,final-project-qd1k.onrender.com').split(',')
+DEFAULT_HOSTS = 'localhost,127.0.0.1,final-project-qd1k.onrender.com'
+DEFAULT_ORIGINS = 'https://final-project-qd1k.onrender.com'
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', DEFAULT_HOSTS).split(',')
+CSRF_TRUSTED_ORIGINS = [origin for origin in os.environ.get('DJANGO_CSRF_TRUSTED_ORIGINS', DEFAULT_ORIGINS).split(',') if origin.startswith('http://') or origin.startswith('https://')]
 
 
 # Application definition
