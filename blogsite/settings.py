@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-d7trbj(!n-6l#v&-tnox!g3iqt%p9mbxp-0_%1siia9^y@qz4&
 
 # SECURITY WARNING: don't run with debug turned on in production!
 import os
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 DEFAULT_HOSTS = 'localhost,127.0.0.1,final-project-qd1k.onrender.com'
 DEFAULT_ORIGINS = 'https://final-project-qd1k.onrender.com'
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', DEFAULT_HOSTS).split(',')
@@ -121,12 +121,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Media files
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 
@@ -134,7 +134,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CSRF_TRUSTED_ORIGINS = [
     'https://final-project-qd1k.onrender.com',
     'https://onrender.com',
-    'final-project-qd1k.onrender.com',
 ]
 
 # Security settings for production
