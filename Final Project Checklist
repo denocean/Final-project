@@ -1,0 +1,64 @@
+Final Project Checklist
+Project Name: Django Web Service
+Deployment Status: Successfully deployed to Render
+Deployment URL: https://final-project-qd1k.onrender.com
+Summary of the needed items
+The project meets all Baseline requirements, exceeds the minimum requirements for good, better, and best tiers.
+ Baseline (All Implemented)
+Requirement	Status	Implementation Notes
+Web request/response lifecycle	✔️	Django handles this by default.
+DNS → IP → HTTP (context)	✔️	Covered by deployment and Django’s request handling.
+HTTP methods & headers	✔️	POST/GET in forms and views.
+WSGI (where HTTP meets Python)	✔️	Django uses WSGI.
+Django’s job: URLs + views	✔️	urls.py and views.py are configured.
+Getting Django set up (venv, startproject)	✔️	Project is set up.
+URLconf basics: path()/urlpatterns	✔️	Used in urls.py.
+Route converters (<int:>, <slug:>)	✔️	Used for post slugs.
+Ordering/specificity of patterns	✔️	Patterns are ordered.
+Function-Based Views (FBV)	✔️	Used for registration/profile.
+HttpRequest/HttpResponse essentials	✔️	Used in views.
+TEMPLATES settings & loaders	✔️	Configured in settings.py.
+Rendering from views (render, CBV context)	✔️	Used in views.
+Form classes: fields → HTML	✔️	ModelForm and UserRegisterForm.
+GET vs POST, bound forms, is_valid()	✔️	Used in registration and post forms.
+CSRF & {% csrf_token %}	✔️	All POST forms include {% csrf_token %}.
+Define models and fields	✔️	Post model defined.
+Migrations (makemigrations/migrate)	✔️	Used.
+Enable admin and register models	✔️	admin.py configured.
+App config and structure	✔️	Standard Django app structure.
+Login/logout flow	✔️	Django auth URLs implemented.
+What middleware is and order	✔️	Standard middleware configured.
+STATIC_URL and finders	✔️	Configured in settings.py.
+Django TestCase basics	✔️	tests.py includes basic tests.
+Env vars and secret settings	✔️	Used in settings.py.
+DEBUG=False, ALLOWED_HOSTS hygiene	✔️	Controlled by environment variables.
+MEDIA_URL/ROOT and uploads	✔️	Configured in settings.py.
+Use request.session safely	✔️	Django sessions enabled.
+Settings and configuration	✔️	Configured in settings.py.
+Use built-in manage.py commands	✔️	Used for migration, runserver.
+Paginate heavy lists	✔️	PostListView paginates posts.
+CSRF, XSS, and input sanitizing	✔️	CSRF and Django’s built-in protections.
+Logging and error pages	✔️	Logging middleware and error handling implemented.
+
+ Good (Implemented: 7/4 Minimum)
+Requirement	Status	Implementation Notes
+include() and namespacing (app_name)	✔️	Used in urls.py.
+Named URLs & reversing (reverse, {% url %})	✔️	Used in templates and views.
+Intro to CBVs and Generic CBVs	✔️	Used for posts (ListView, DetailView).
+Inheritance: {% extends %}, {% block %}	✔️	Used across all templates.
+Permissions/authorization checks	✔️	LoginRequiredMixin, UserPassesTestMixin applied to views.
+Messages/Auth/Session wiring	✔️	Django messages and sessions integrated.
+collectstatic for deploy	✔️	Used for deployment setup.
+
+ Better (Implemented: 4/2 Minimum)
+Requirement	Status	Implementation Notes
+Custom tags/filters (templatetags/)	✔️	Custom filter/tag implemented.
+ModelForms for CRUD	✔️	Used for post creation and editing.
+View decorators	✔️	@login_required, @cache_page used on relevant views.
+Caching (per-view/low-level)	✔️	@cache_page decorator used on the list view.
+
+ Best (Implemented: 2/1 Minimum)
+Requirement	Status	Implementation Notes
+Template overrides/theming	✔️	Custom login and base templates implemented for consistent theming.
+Observability (logs, health checks)	✔️	Logging middleware and dedicated health check view included.
+
